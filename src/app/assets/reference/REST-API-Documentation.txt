@@ -1,0 +1,3 @@
+API Reference
+********
+https://rapidapi.com/theapiguy/api/the-cocktail-db?endpoint=apiendpoint_8bb0b905-cd1e-478e-93be-7a6a56fd41ea
