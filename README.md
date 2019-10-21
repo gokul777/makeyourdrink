@@ -24,6 +24,10 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 After build, copy all the contents from `dist/app_name` and paste in `dist/` directory.
 Run `firebase deploy`
 
+## Aapplication url 
+`https://makeyourcocktaildrink.firebaseapp.com/`
+`https://makeyourcocktaildrink.web.app/`
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
