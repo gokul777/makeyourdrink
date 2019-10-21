@@ -6,6 +6,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+## Firebase local server
+Set up fire base dev tools in local
+Run `npm install -g firebase-tools`
+Login using `firebase login`
+Run `firebase serve` for a dev server. Navigate to `http://localhost:5000/`.
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
@@ -13,6 +19,10 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+## Firebase deployment
+After build, copy all the contents from dist/app_name and paste in dist folder.
+Run `firebase deploy`
 
 ## Running unit tests
 
