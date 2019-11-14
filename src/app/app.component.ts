@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BarService } from './bar.service';
 
 @Component({
   selector: 'app-root',
@@ -8,14 +7,10 @@ import { BarService } from './bar.service';
 })
 export class AppComponent implements OnInit  {
   title = 'makeyourdrink';
-constructor(private bar: BarService ){
+constructor(){
   
 }
 ngOnInit(): void {
-  this.bar.list_categories().subscribe((res)=>{
-    console.log(res);
-    //TODO 
-  })
 }
 
 }

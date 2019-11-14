@@ -1,9 +1,67 @@
+
+<div class="container-fluid">
+<header>
+  <h1>
+    Make your drink
+  </h1>
+</header>
+</div>
 <section class="init-section">
-  <header>
-    <h1>
-      Make your drink
-    </h1>
-  </header>
-  <div>
-  </div>
+    <div class="container">
+      <article>
+        <h3>"When we get drunk we fall asleep. When we fall asleep we commit no sin. <br> 
+        When we commit no sin we go to heaven. Sooooo, let's all get drunk and go to heaven!" 
+        ~ Brian O'Rourke</h3></article><br/>
+      <div class="row">
+        <div class="col-sm">
+            <div class="form-group">
+                <label for="alc-filter">Select Type of your drink</label><br>
+                <select class="form-control" id="alc-filter" >
+                  <option *ngFor="let item of alcFilters" value="item.strAlcoholic">
+                    {{item.strAlcoholic}}
+                    </option>
+                </select>
+              </div>
+        </div>
+        <div class="col-sm">
+            <div class="form-group">
+                <label for="alc-ingredient">Select Type of your drink</label><br>
+                <select class="form-control" id="alc-ingredient" >
+                  <option *ngFor="let item of alcFiltersIngredients" [value]="item.strIngredient1">
+                    {{item.strIngredient1}}
+                    </option>
+                </select>
+              </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="alc-glass">Select Type of your drink</label><br>
+            <select class="form-control" id="alc-glass" >
+              <option *ngFor="let item of alcCategories" [value]="item.strCategory">
+                {{item.strCategory}}
+                </option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm">
+            <div class="form-group">
+                <label for="alc-category">Select Type of your drink</label><br>
+                <select class="form-control" id="alc-category" >
+                  <option *ngFor="let item of alcGlasses" [value]="item.strGlass">
+                    {{item.strGlass}}
+                    </option>
+                </select>
+              </div>
+        </div>
+      </div>  
+      </div>
 </section>
+<section>
+  hi
+  <router-outlet></router-outlet>
+</section>
+<div class="container-fluid footer-area">
+  <footer>
+    Copyright@Ninja
+  </footer>
+</div>
