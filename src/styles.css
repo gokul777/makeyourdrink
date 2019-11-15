@@ -1,1 +1,4 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+html,body{
+    overflow-x: hidden;
+}

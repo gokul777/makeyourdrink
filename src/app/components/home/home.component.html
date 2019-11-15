@@ -1,4 +1,3 @@
-
 <div class="container-fluid">
 <header>
   <h1>
@@ -13,52 +12,60 @@
         When we commit no sin we go to heaven. Sooooo, let's all get drunk and go to heaven!" 
         ~ Brian O'Rourke</h3></article><br/>
       <div class="row">
-        <div class="col-sm">
+        <div class="col-sm-1 col-md-4">
             <div class="form-group">
                 <label for="alc-filter">Select Type of your drink</label><br>
-                <select class="form-control" id="alc-filter" >
-                  <option *ngFor="let item of alcFilters" value="item.strAlcoholic">
+                <select class="form-control" id="alc-filter" [(ngModel)]="filter" (ngModelChange)="getFilterDrinks(filter)">
+                  <option *ngFor="let item of alcFilters" [value]="item.strAlcoholic">
                     {{item.strAlcoholic}}
                     </option>
                 </select>
               </div>
         </div>
-        <div class="col-sm">
+        <div class="col-sm-1 col-md-4">
             <div class="form-group">
                 <label for="alc-ingredient">Select Type of your drink</label><br>
-                <select class="form-control" id="alc-ingredient" >
+                <select class="form-control" id="alc-ingredient" [(ngModel)]="ingredient" (ngModelChange)="getIngredientDrinks(ingredient)" >
                   <option *ngFor="let item of alcFiltersIngredients" [value]="item.strIngredient1">
                     {{item.strIngredient1}}
                     </option>
                 </select>
               </div>
         </div>
-        <div class="col-sm">
+        <div class="col-sm-1 col-md-4">
           <div class="form-group">
             <label for="alc-glass">Select Type of your drink</label><br>
-            <select class="form-control" id="alc-glass" >
+            <select class="form-control" id="alc-glass" [(ngModel)]="category" (ngModelChange)="getCategoryDrinks(category)">
               <option *ngFor="let item of alcCategories" [value]="item.strCategory">
                 {{item.strCategory}}
                 </option>
             </select>
           </div>
         </div>
-        <div class="col-sm">
+        <!-- <div class="col-sm">
             <div class="form-group">
                 <label for="alc-category">Select Type of your drink</label><br>
-                <select class="form-control" id="alc-category" >
+                <select class="form-control" id="alc-category" [(ngModel)]="glass" (ngModelChange)="getIngredientDrinks(glass)">
                   <option *ngFor="let item of alcGlasses" [value]="item.strGlass">
                     {{item.strGlass}}
                     </option>
                 </select>
               </div>
-        </div>
+        </div> -->
       </div>  
       </div>
 </section>
 <section>
-  hi
-  <router-outlet></router-outlet>
+<div class="container-fluid">
+<div class="row">
+        <div class="card col-2" *ngFor="let drink of filterDrinks" >
+          <img class="card-img-top" src={{drink.strDrinkThumb}} alt="Card image cap">
+          <div class="card-body">
+           <h5 class="card-title"><a (click)="getCocktailDetails(drink.idDrink)">{{drink.strDrink}}</a></h5>
+          </div>
+        </div>
+</div>
+</div>
 </section>
 <div class="container-fluid footer-area">
   <footer>

@@ -1,3 +1,6 @@
 .footer-area{
     bottom: 0;
 }
+.card-title{
+    cursor: pointer;
+}
