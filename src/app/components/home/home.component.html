@@ -5,8 +5,8 @@
         <mat-form-field>
           <mat-label>Choose your drink </mat-label>
           <mat-select
-            [(ngModel)]="item"
-            (ngModelChange)="getSelection(item)"
+            [(ngModel)]="selection"
+            (ngModelChange)="getSelection(selection)"
           > 
             <mat-option
               value="type"

@@ -12,11 +12,11 @@ export class HomeComponent implements OnInit {
   private alcFiltersIngredients: any;
   private alcCategories: any;
   private alcGlasses: any;
-  private filterDrinks: any;
   private cocktailDetails: any;
   private cocktailDetail: any;
   private obj: any;
-  private selection: string;
+  public selection: string;
+  public filterDrinks: any;
 
   constructor(private _bar: BarService) { 
   this.alcFilters = [];
