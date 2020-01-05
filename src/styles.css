@@ -1,4 +1,13 @@
 @import "~bootstrap/dist/css/bootstrap.css";
-html,body{
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+html, body { 
+    height: 100%;
     overflow-x: hidden;
+}
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background:#fff;
+    overflow-y: hidden;
 }

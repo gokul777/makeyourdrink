@@ -1,74 +1,120 @@
-<div class="container-fluid">
-<header>
-  <h1>
-    Make your drink
-  </h1>
-</header>
-</div>
 <section class="init-section">
-    <div class="container">
-      <article>
-        <h3>"When we get drunk we fall asleep. When we fall asleep we commit no sin. <br> 
-        When we commit no sin we go to heaven. Sooooo, let's all get drunk and go to heaven!" 
-        ~ Brian O'Rourke</h3></article><br/>
-      <div class="row">
-        <div class="col-sm-1 col-md-4">
-            <div class="form-group">
-                <label for="alc-filter">Select Type of your drink</label><br>
-                <select class="form-control" id="alc-filter" [(ngModel)]="filter" (ngModelChange)="getFilterDrinks(filter)">
-                  <option *ngFor="let item of alcFilters" [value]="item.strAlcoholic">
-                    {{item.strAlcoholic}}
-                    </option>
-                </select>
-              </div>
-        </div>
-        <div class="col-sm-1 col-md-4">
-            <div class="form-group">
-                <label for="alc-ingredient">Select Type of your drink</label><br>
-                <select class="form-control" id="alc-ingredient" [(ngModel)]="ingredient" (ngModelChange)="getIngredientDrinks(ingredient)" >
-                  <option *ngFor="let item of alcFiltersIngredients" [value]="item.strIngredient1">
-                    {{item.strIngredient1}}
-                    </option>
-                </select>
-              </div>
-        </div>
-        <div class="col-sm-1 col-md-4">
-          <div class="form-group">
-            <label for="alc-glass">Select Type of your drink</label><br>
-            <select class="form-control" id="alc-glass" [(ngModel)]="category" (ngModelChange)="getCategoryDrinks(category)">
-              <option *ngFor="let item of alcCategories" [value]="item.strCategory">
-                {{item.strCategory}}
-                </option>
-            </select>
-          </div>
-        </div>
-        <!-- <div class="col-sm">
-            <div class="form-group">
-                <label for="alc-category">Select Type of your drink</label><br>
-                <select class="form-control" id="alc-category" [(ngModel)]="glass" (ngModelChange)="getIngredientDrinks(glass)">
-                  <option *ngFor="let item of alcGlasses" [value]="item.strGlass">
-                    {{item.strGlass}}
-                    </option>
-                </select>
-              </div>
-        </div> -->
-      </div>  
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-1 col-xs-1 col-md-6">
+        <mat-form-field>
+          <mat-label>Choose your drink </mat-label>
+          <mat-select
+            [(ngModel)]="item"
+            (ngModelChange)="getSelection(item)"
+          > 
+            <mat-option
+              value="type"
+            >
+            Type <span class="text-muted float-right"> Ex: alcoholic</span>
+            </mat-option>
+            <mat-option
+              value="ingredient"
+            >
+            Ingredient <span class="text-muted float-right"> Ex: Gin</span>
+            </mat-option>
+            <mat-option
+              value="category"
+            >
+            Category <span class="text-muted float-right"> Ex: Cocktail</span>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
+      <div class="col-sm-1 col-xs-1 col-md-6">
+        <mat-form-field *ngIf="selection === 'type'">
+          <mat-label>Select Type</mat-label>
+          <mat-select
+            [(ngModel)]="filter"
+            (ngModelChange)="getFilterDrinks(filter)"
+          >
+            <mat-option
+              *ngFor="let item of alcFilters"
+              [value]="item.strAlcoholic"
+            >
+              {{ item.strAlcoholic }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field *ngIf="selection ==='ingredient'">
+          <mat-label>Select Ingredient</mat-label>
+          <mat-select
+            [(ngModel)]="ingredient"
+            (ngModelChange)="getIngredientDrinks(ingredient)"
+          >
+            <mat-option
+              *ngFor="let item of alcFiltersIngredients"
+              [value]="item.strIngredient1"
+            >
+              {{ item.strIngredient1 }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field *ngIf="selection ==='category'">
+          <mat-label>Select Category</mat-label>
+          <mat-select
+            [(ngModel)]="category"
+            (ngModelChange)="getCategoryDrinks(category)"
+          >
+            <mat-option
+              *ngFor="let item of alcCategories"
+              [value]="item.strCategory"
+            >
+              {{ item.strCategory }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
 </section>
-<section>
-<div class="container-fluid">
-<div class="row">
-        <div class="card col-2" *ngFor="let drink of filterDrinks" >
-          <img class="card-img-top" src={{drink.strDrinkThumb}} alt="Card image cap">
-          <div class="card-body">
-           <h5 class="card-title"><a (click)="getCocktailDetails(drink.idDrink)">{{drink.strDrink}}</a></h5>
-          </div>
+<section class="service-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div
+        class="card col-md-3 col-sm-1 col-xs-1"
+        *ngFor="let drink of filterDrinks"
+      >
+        <img
+          class="card-img-top"
+          src="{{ drink.strDrinkThumb }}"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title">
+            <a >{{
+              drink.strDrink
+            }}</a>
+          </h5>
+          <p class="card-text">
+            A cocktail is an alcoholic mixed drink, which is either a combination of spirits, or one or more spirits mixed with other ingredients.
+          </p>
+          <button mat-raised-button (click)="getCocktailDetails(drink.idDrink)">How to mix me?</button>
+
+            <!-- <div *ngIf="cocktailDetail" class="card card-body">
+              <mat-list role="list">
+                <mat-list-item role="listitem">{{cocktailDetail.strAlcoholic}}</mat-list-item>
+                <mat-list-item role="listitem">Category <span class="float-right text-muted">{{cocktailDetail.strCategory}}</span></mat-list-item>
+                <mat-list-item role="listitem">Glass <span class="float-right text-muted">{{cocktailDetail.strGlass}}</span></mat-list-item>
+              </mat-list>
+            </div> -->
+
         </div>
-</div>
-</div>
+        <div class="card-footer bg-transparent">
+        <span class="rating float-left">
+          <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="rocks">5 stars</label>
+          <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="pretty good">4 stars</label>
+          <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="good">3 stars</label>
+          <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="meh">2 stars</label>
+          <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="sucks big time">1 star</label>
+        </span>
+          <span class="float-right"><button mat-raised-button color="primary">Try me</button></span></div>
+      </div>
+    </div>
+  </div>
 </section>
-<div class="container-fluid footer-area">
-  <footer>
-    Copyright@Ninja
-  </footer>
-</div>
