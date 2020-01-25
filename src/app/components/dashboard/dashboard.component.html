@@ -3,21 +3,18 @@
     <button mat-icon-button>
       <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
     </button>
-    <h1>Make your drink</h1>
+    <img [src]="logo" height="50" width="120">
     <span class="menu-spacer"></span>
-     <span class="float-right">
+     <!-- <span class="cart">
       <a mat-button [routerLink]="'/cart'"><mat-icon matBadge="4" matBadgePosition="above after" matBadgeColor="warn">shopping_cart</mat-icon></a>
-     </span>
+     </span> -->
   </mat-toolbar-row>
 </mat-toolbar> 
-
-
 <mat-sidenav-container>
   <mat-sidenav #sidenav>
     <mat-nav-list>
       <a mat-list-item [routerLink]="'/home'"><mat-icon>home</mat-icon>&nbsp;&nbsp;Home </a>
-      <a mat-list-item [routerLink]="'/cart'"><mat-icon matBadge="4" matBadgePosition="above after" matBadgeColor="warn">shopping_cart</mat-icon>&nbsp;&nbsp;Cart </a>
-      <!-- <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item><mat-icon>close</mat-icon> Close</a> -->
+      <a mat-list-item [routerLink]="'/cart'"><mat-icon matBadge="4" matBadgePosition="above after" matBadgeColor="warn">favorite</mat-icon>&nbsp;&nbsp;Favorite </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

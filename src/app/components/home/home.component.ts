@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BarService } from '../../bar.service';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +10,8 @@ import { BarService } from '../../bar.service';
 })
 export class HomeComponent implements OnInit {
 
+  private background = require ("../../assets/images/d1.jpg");
+
   private alcFilters: any;
   private alcFiltersIngredients: any;
   private alcCategories: any;
@@ -15,10 +19,10 @@ export class HomeComponent implements OnInit {
   private cocktailDetails: any;
   private cocktailDetail: any;
   private obj: any;
-  public selection: string;
-  public filterDrinks: any;
+  private selection: string;
+  private filterDrinks: any;
 
-  constructor(private _bar: BarService) { 
+  constructor(private _bar: BarService, private dialog: MatDialog) { 
   this.alcFilters = [];
   this.alcFiltersIngredients = [];
   this.alcCategories = [];
@@ -44,7 +48,6 @@ export class HomeComponent implements OnInit {
    */
   getSelection(selection : string): void{
   this.selection = selection;
-  console.log(this.selection);
   }
 
   /**
@@ -144,7 +147,12 @@ export class HomeComponent implements OnInit {
       if(this.obj.hasOwnProperty('drinks')){
        this.cocktailDetails = this.obj['drinks'];
        this.cocktailDetail = this.cocktailDetails[0];
-       console.log(this.cocktailDetail);
+       //dialog
+       const dialogConfig = new MatDialogConfig();
+       dialogConfig.disableClose = true;
+       dialogConfig.autoFocus = true;
+       dialogConfig.data = this.cocktailDetail;
+       this.dialog.open(DialogComponent, dialogConfig);
       }
      }) 
   }

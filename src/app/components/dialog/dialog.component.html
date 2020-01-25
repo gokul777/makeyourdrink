@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>{{drink.name}}</h1>
+<label>Category</label>
+<p class="text-muted">{{drink.category}} - {{drink.alcoholic}}</p>
+<mat-divider></mat-divider>
+<br>
+<div mat-dialog-content>
+  <p><mat-icon> local_bar</mat-icon>&nbsp; Serve with :  {{drink.glass}}</p>
+<label>Ingredients</label>
+<mat-grid-list cols="2" rowHeight="5:1" >
+  <ng-container *ngFor="let ingredient of drink.ingredients">
+  <mat-grid-tile >
+    {{ingredient.item}}
+  </mat-grid-tile>
+  <mat-grid-tile >
+    {{ingredient.qty}}
+  </mat-grid-tile>
+</ng-container>
+</mat-grid-list>
+<br>
+  <mat-divider></mat-divider>
+  <label>Preparation</label>
+  <p>{{drink.mix}}</p>
+  <br>
+  <p>Cheers !!! <mat-icon>thumb_up</mat-icon></p>
+</div>
+<div mat-dialog-actions  float-right>
+  <button color="primary" mat-raised-button (click)="close()">Close</button>
+</div>

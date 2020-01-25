@@ -1,7 +1,10 @@
 <section class="init-section">
   <div class="container">
+    <div>
+      <img [src]= "background" height="400" width="400">
+    </div>
     <div class="row">
-      <div class="col-sm-1 col-xs-1 col-md-6">
+      <div class="col-sm-1 col-xs-1 col-md-12">
         <mat-form-field>
           <mat-label>Choose your drink </mat-label>
           <mat-select
@@ -26,7 +29,7 @@
           </mat-select>
         </mat-form-field>
       </div>
-      <div class="col-sm-1 col-xs-1 col-md-6">
+      <div class="col-sm-1 col-xs-1 col-md-12">
         <mat-form-field *ngIf="selection === 'type'">
           <mat-label>Select Type</mat-label>
           <mat-select
@@ -95,15 +98,6 @@
             A cocktail is an alcoholic mixed drink, which is either a combination of spirits, or one or more spirits mixed with other ingredients.
           </p>
           <button mat-raised-button (click)="getCocktailDetails(drink.idDrink)">How to mix me?</button>
-
-            <!-- <div *ngIf="cocktailDetail" class="card card-body">
-              <mat-list role="list">
-                <mat-list-item role="listitem">{{cocktailDetail.strAlcoholic}}</mat-list-item>
-                <mat-list-item role="listitem">Category <span class="float-right text-muted">{{cocktailDetail.strCategory}}</span></mat-list-item>
-                <mat-list-item role="listitem">Glass <span class="float-right text-muted">{{cocktailDetail.strGlass}}</span></mat-list-item>
-              </mat-list>
-            </div> -->
-
         </div>
         <div class="card-footer bg-transparent">
         <span class="rating float-left">
@@ -113,7 +107,7 @@
           <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="meh">2 stars</label>
           <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="sucks big time">1 star</label>
         </span>
-          <span class="float-right"><button mat-raised-button color="primary">Try me</button></span></div>
+          <span class="float-right"><button mat-raised-button color="primary">Try Me</button></span></div>
       </div>
     </div>
   </div>
