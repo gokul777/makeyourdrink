@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  private logo = require("../../assets/images/drinklogo.png");
+  public logo = require("../../assets/images/drinklogo.png");
   constructor() { }
 
   ngOnInit() {

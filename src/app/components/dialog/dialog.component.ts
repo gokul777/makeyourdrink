@@ -8,7 +8,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 })
 export class DialogComponent implements OnInit {
   private ingredient: any;
-  private drink: any;
+  public drink: any;
 
   constructor(
     private _dialogRef: MatDialogRef<DialogComponent>,
@@ -46,7 +46,7 @@ export class DialogComponent implements OnInit {
     }
     this.drink["ingredients"] = contents;
   }
-  
+
 /**
  * close dialog
  */

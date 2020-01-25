@@ -6,7 +6,7 @@
 <div mat-dialog-content>
   <p><mat-icon> local_bar</mat-icon>&nbsp; Serve with :  {{drink.glass}}</p>
 <label>Ingredients</label>
-<mat-grid-list cols="2" rowHeight="5:1" >
+<mat-grid-list cols="2" rowHeight="3:1" >
   <ng-container *ngFor="let ingredient of drink.ingredients">
   <mat-grid-tile >
     {{ingredient.item}}
@@ -25,4 +25,5 @@
 </div>
 <div mat-dialog-actions  float-right>
   <button color="primary" mat-raised-button (click)="close()">Close</button>
+<br>
 </div>

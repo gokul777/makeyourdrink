@@ -10,7 +10,7 @@ import { DialogComponent } from '../dialog/dialog.component';
 })
 export class HomeComponent implements OnInit {
 
-  private background = require ("../../assets/images/d1.jpg");
+  public background = require ("../../assets/images/d1.jpg");
 
   private alcFilters: any;
   private alcFiltersIngredients: any;
@@ -19,8 +19,8 @@ export class HomeComponent implements OnInit {
   private cocktailDetails: any;
   private cocktailDetail: any;
   private obj: any;
-  private selection: string;
-  private filterDrinks: any;
+  public selection: string;
+  public filterDrinks: any;
 
   constructor(private _bar: BarService, private dialog: MatDialog) { 
   this.alcFilters = [];
@@ -151,6 +151,7 @@ export class HomeComponent implements OnInit {
        const dialogConfig = new MatDialogConfig();
        dialogConfig.disableClose = true;
        dialogConfig.autoFocus = true;
+       dialogConfig.width="65%";
        dialogConfig.data = this.cocktailDetail;
        this.dialog.open(DialogComponent, dialogConfig);
       }
