@@ -1,14 +1,14 @@
-<h1 mat-dialog-title>{{drink.name}}</h1>
-<label>Category</label>
+<div class="flex-row justify-content-center p-3">
+<h1 mat-dialog-title color="primary" class="mb-3">{{drink.name}}</h1>
+<label class="mb-3">Category</label>
 <p class="text-muted">{{drink.category}} - {{drink.alcoholic}}</p>
+<p class="text-muted"><mat-icon> local_bar</mat-icon>&nbsp; Serve with :  {{drink.glass}}</p>
 <mat-divider></mat-divider>
-<br>
-<div mat-dialog-content>
-  <p><mat-icon> local_bar</mat-icon>&nbsp; Serve with :  {{drink.glass}}</p>
-<label>Ingredients</label>
-<mat-grid-list cols="2" rowHeight="3:1" >
+<div mat-dialog-content class="mt-3 p-3">
+<label><strong>Ingredients</strong></label>
+<mat-grid-list cols="2" class="mt-2 mb-2" rowHeight="5:2">
   <ng-container *ngFor="let ingredient of drink.ingredients">
-  <mat-grid-tile >
+  <mat-grid-tile>
     {{ingredient.item}}
   </mat-grid-tile>
   <mat-grid-tile >
@@ -16,14 +16,12 @@
   </mat-grid-tile>
 </ng-container>
 </mat-grid-list>
-<br>
   <mat-divider></mat-divider>
-  <label>Preparation</label>
-  <p>{{drink.mix}}</p>
-  <br>
+  <label color="primary" class="mt-3"><strong>Mixing</strong></label>
+  <p class="mb-2">{{drink.mix}}</p>
   <p>Cheers !!! <mat-icon>thumb_up</mat-icon></p>
 </div>
-<div mat-dialog-actions  float-right>
+<div mat-dialog-actions float-right>
   <button color="primary" mat-raised-button (click)="close()">Close</button>
-<br>
+</div>
 </div>

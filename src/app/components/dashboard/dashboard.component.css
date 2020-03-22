@@ -1,3 +1,11 @@
 .content-area{
    height: 88vh;
 }
+mat-toolbar-row{
+   position: relative;
+}
+mat-slide-toggle{
+   position: absolute;
+   right: 1em;
+   font-size: 12px;
+}

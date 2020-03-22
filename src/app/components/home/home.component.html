@@ -1,114 +1,110 @@
-<section class="init-section">
+<app-loader *ngIf="loader"></app-loader>
   <div class="container">
-    <div>
-      <img [src]= "background" height="400" width="400">
+    <div class="d-flex justify-content-center intro ">
+      <mat-card class="example-card ">
+        <img mat-card-image [src]= "background" alt="drink">
+        <mat-card-content>
+          <p class="text-muted quote">
+            “ First you take a drink, then the drink takes a drink, then the drink takes you. " 
+            </p>
+            <p class="author" color='accent'>Francis Scott Key Fitzgerald</p>
+        </mat-card-content>
+      </mat-card>
     </div>
-    <div class="row">
-      <div class="col-sm-1 col-xs-1 col-md-12">
-        <mat-form-field>
-          <mat-label>Choose your drink </mat-label>
-          <mat-select
-            [(ngModel)]="selection"
-            (ngModelChange)="getSelection(selection)"
-          > 
-            <mat-option
-              value="type"
-            >
-            Type <span class="text-muted float-right"> Ex: alcoholic</span>
-            </mat-option>
-            <mat-option
-              value="ingredient"
-            >
-            Ingredient <span class="text-muted float-right"> Ex: Gin</span>
-            </mat-option>
-            <mat-option
-              value="category"
-            >
-            Category <span class="text-muted float-right"> Ex: Cocktail</span>
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+      <div class="d-flex justify-content-center">
+        <mat-card>
+          <mat-card-content>
+            <mat-form-field appearance="outline">
+              <mat-label>Choose your drink </mat-label>
+              <mat-select
+                [(ngModel)]="selection"
+                (ngModelChange)="getSelection(selection)"
+              > 
+                <mat-option
+                  value="type"
+                >
+                Type <span class="text-muted float-right"> Ex: alcoholic</span>
+                </mat-option>
+                <mat-option
+                  value="ingredient"
+                >
+                Ingredient <span class="text-muted float-right"> Ex: Gin</span>
+                </mat-option>
+                <mat-option
+                  value="category"
+                >
+                Category <span class="text-muted float-right"> Ex: Cocktail</span>
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field *ngIf="selection === 'type'" appearance="outline">
+              <mat-label>Select Type</mat-label>
+              <mat-select
+                [(ngModel)]="filter"
+                (ngModelChange)="getFilterDrinks(filter)"
+                
+              >
+                <mat-option
+                  *ngFor="let item of alcFilters"
+                  [value]="item.strAlcoholic"
+                >
+                  {{ item.strAlcoholic }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field *ngIf="selection ==='ingredient'" appearance="outline">
+              <mat-label>Select Ingredient</mat-label>
+              <mat-select
+                [(ngModel)]="ingredient"
+                (ngModelChange)="getIngredientDrinks(ingredient)"
+              
+              >
+                <mat-option
+                  *ngFor="let item of alcFiltersIngredients"
+                  [value]="item.strIngredient1"
+                >
+                  {{ item.strIngredient1 }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field *ngIf="selection ==='category'" appearance="outline">
+              <mat-label>Select Category</mat-label>
+              <mat-select
+                [(ngModel)]="category"
+                (ngModelChange)="getCategoryDrinks(category)"
+              
+              >
+                <mat-option
+                  *ngFor="let item of alcCategories"
+                  [value]="item.strCategory"
+                >
+                  {{ item.strCategory }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-card-content>
+        </mat-card>
       </div>
-      <div class="col-sm-1 col-xs-1 col-md-12">
-        <mat-form-field *ngIf="selection === 'type'">
-          <mat-label>Select Type</mat-label>
-          <mat-select
-            [(ngModel)]="filter"
-            (ngModelChange)="getFilterDrinks(filter)"
-          >
-            <mat-option
-              *ngFor="let item of alcFilters"
-              [value]="item.strAlcoholic"
-            >
-              {{ item.strAlcoholic }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field *ngIf="selection ==='ingredient'">
-          <mat-label>Select Ingredient</mat-label>
-          <mat-select
-            [(ngModel)]="ingredient"
-            (ngModelChange)="getIngredientDrinks(ingredient)"
-          >
-            <mat-option
-              *ngFor="let item of alcFiltersIngredients"
-              [value]="item.strIngredient1"
-            >
-              {{ item.strIngredient1 }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field *ngIf="selection ==='category'">
-          <mat-label>Select Category</mat-label>
-          <mat-select
-            [(ngModel)]="category"
-            (ngModelChange)="getCategoryDrinks(category)"
-          >
-            <mat-option
-              *ngFor="let item of alcCategories"
-              [value]="item.strCategory"
-            >
-              {{ item.strCategory }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="service-section">
-  <div class="container">
+     
     <div class="row justify-content-center">
-      <div
-        class="card col-md-3 col-sm-1 col-xs-1"
-        *ngFor="let drink of filterDrinks"
-      >
-        <img
-          class="card-img-top"
-          src="{{ drink.strDrinkThumb }}"
-          alt="Card image cap"
-        />
-        <div class="card-body">
-          <h5 class="card-title">
-            <a >{{
-              drink.strDrink
-            }}</a>
-          </h5>
-          <p class="card-text">
+      <div class="col-md-3 col-sm-1 col-xs-1" *ngFor="let drink of filterDrinks">
+      <mat-card class="example-card" >
+        <mat-card-header>
+          <mat-card-title>{{
+            drink.strDrink
+          }}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="{{ drink.strDrinkThumb }}" alt="Photo of ">
+        <mat-card-content>
+          <p>
             A cocktail is an alcoholic mixed drink, which is either a combination of spirits, or one or more spirits mixed with other ingredients.
           </p>
-          <button mat-raised-button (click)="getCocktailDetails(drink.idDrink)">How to mix me?</button>
-        </div>
-        <div class="card-footer bg-transparent">
-        <span class="rating float-left">
-          <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="rocks">5 stars</label>
-          <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="pretty good">4 stars</label>
-          <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="good">3 stars</label>
-          <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="meh">2 stars</label>
-          <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="sucks big time">1 star</label>
-        </span>
-          <span class="float-right"><button mat-raised-button color="primary">Try Me</button></span></div>
-      </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button id="mix-btn" mat-raised-button color="primary" (click)="getCocktailDetails(drink.idDrink)">How to mix me?</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
     </div>
   </div>
-</section>
+

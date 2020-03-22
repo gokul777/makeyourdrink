@@ -1,69 +1,24 @@
-.init-section{
-    text-align: center;
-    margin-top: 2em;
+.intro{
+    margin-top: 1em;
 }
-.service-section{
-    margin-bottom: 3em;
+.author{
+    font-style: italic;
+    font-size: small;
+    color: rgb(95, 167, 230);
+    text-align: end;
 }
-.card{
-    padding: 0;
-    margin: 1em;
+.quote{
+    font-size: 16px;
 }
-.card-title{
-    cursor: pointer;
+
+::ng-deep .mat-card{
+    width: 100%!important;
+    margin-bottom: 12px;
 }
-.card:hover{
-    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.3);
+::ng-deep .mat-form-field{
+    width: 100%!important;
 }
-/* .card-footer{
-    display: inline-flex;
-} */
 
-  /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
-    follow these rules. Every browser that supports :checked also supports :not(), so
-    it doesn’t make the test unnecessarily selective */
-  .rating:not(:checked) > input {
-      position:absolute;
-      top:-9999px;
-      clip:rect(0,0,0,0);
-  }
-
-  .rating:not(:checked) > label {
-      float:right;
-      width:1em;
-      overflow:hidden;
-      white-space:nowrap;
-      cursor:pointer;
-      font-size:1.5em;
-      color:#ddd;
-  }
-
-  .rating:not(:checked) > label:before {
-      content: '★ ';
-  }
-
-  .rating > input:checked ~ label {
-      color: dodgerblue;
-      
-  }
-
-  .rating:not(:checked) > label:hover,
-  .rating:not(:checked) > label:hover ~ label {
-      color: dodgerblue;
-      
-  }
-
-  .rating > input:checked + label:hover,
-  .rating > input:checked + label:hover ~ label,
-  .rating > input:checked ~ label:hover,
-  .rating > input:checked ~ label:hover ~ label,
-  .rating > label:hover ~ input:checked ~ label {
-      color: dodgerblue;
-      
-  }
-
-  .rating > label:active {
-      position:relative;
-      top:2px;
-      left:2px;
-  }
+#mix-btn{
+    width: 100% !important;
+}

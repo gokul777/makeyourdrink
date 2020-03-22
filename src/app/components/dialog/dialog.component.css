@@ -1,9 +1,14 @@
 .mat-dialog-actions{
     float: right;
 }
-.mat-dialog-title{
-    color: indigo;
-} 
-label{
-    color: indigo;
+::ng-deep .mat-grid-list .mat-grid-tile .mat-figure{
+    justify-content: left!important;
+    text-align: left!important;
 }
+::ng-deep .mat-dialog-content{
+    max-height: 40vh!important;
+}
+/* ::ng-deep .mat-grid-list{
+    max-height: 20vh!important;
+    overflow-y: auto;
+} */

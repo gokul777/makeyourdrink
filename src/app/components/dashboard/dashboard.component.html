@@ -5,9 +5,7 @@
     </button>
     <img [src]="logo" height="50" width="120">
     <span class="menu-spacer"></span>
-     <!-- <span class="cart">
-      <a mat-button [routerLink]="'/cart'"><mat-icon matBadge="4" matBadgePosition="above after" matBadgeColor="warn">shopping_cart</mat-icon></a>
-     </span> -->
+    <mat-slide-toggle (toggle)="dark=!dark">Toggle dark</mat-slide-toggle>
   </mat-toolbar-row>
 </mat-toolbar> 
 <mat-sidenav-container>
