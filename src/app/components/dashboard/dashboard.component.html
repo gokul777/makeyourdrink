@@ -1,3 +1,4 @@
+<div [class.bar-dark-theme]="dark_theme">
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <button mat-icon-button>
@@ -5,7 +6,7 @@
     </button>
     <img [src]="logo" height="50" width="120">
     <span class="menu-spacer"></span>
-    <mat-slide-toggle (toggle)="dark=!dark">Toggle dark</mat-slide-toggle>
+    <mat-slide-toggle (toggleChange)="toggleTheme()">Dark Mode</mat-slide-toggle>
   </mat-toolbar-row>
 </mat-toolbar> 
 <mat-sidenav-container>
@@ -21,3 +22,4 @@
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
+</div>

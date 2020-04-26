@@ -159,6 +159,7 @@ export class HomeComponent implements OnInit {
       if (this.obj.hasOwnProperty("drinks")) {
         setTimeout(() => {
           this.cocktailDetails = this.obj["drinks"];
+          this.cocktailDetails[0].dark_theme= this._bar.getDarkTheme();
           this.cocktailDetail = this.cocktailDetails[0];
           //dialog
           const dialogConfig = new MatDialogConfig();

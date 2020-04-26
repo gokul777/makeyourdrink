@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BarService } from '../../bar.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
 
   public logo = require("../../assets/images/drinklogo.png");
-  constructor() { }
+  public dark_theme: any =false;
+
+  constructor(private _bar: BarService) { }
 
   ngOnInit() {
   }
 
+  toggleTheme(){
+    this.dark_theme=!this.dark_theme;
+    console.log(this.dark_theme);
+    this._bar.setDarkTheme(this.dark_theme);
+  }
 }

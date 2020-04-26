@@ -9,9 +9,19 @@ export class BarService {
 
   private apiUrl: string;
   private headers: {};  
+  private dark_theme: any;
+
   constructor(private httpClient: HttpClient) {
     this.apiUrl = environment.api_endpoint;
     this.headers = {'x-rapidapi-host':environment.x_rapidapi_host, 'x-rapidapi-key': environment.x_rapidapi_key}
+   }
+
+    setDarkTheme(theme){
+     this.dark_theme = theme;
+   }
+
+    getDarkTheme(){
+     return this.dark_theme;
    }
 
    //List 

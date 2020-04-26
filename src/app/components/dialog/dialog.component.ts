@@ -9,6 +9,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 export class DialogComponent implements OnInit {
   private ingredient: any;
   public drink: any;
+  public dark_theme: boolean=false;
 
   constructor(
     private _dialogRef: MatDialogRef<DialogComponent>,

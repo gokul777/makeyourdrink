@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { OverlayContainer } from '@angular/cdk/overlay';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -32,4 +33,8 @@ import { LoaderComponent } from './components/loader/loader.component';
   bootstrap: [AppComponent],
   entryComponents:[DialogComponent]
 })
-export class AppModule { }
+export class AppModule {
+  // constructor(overlayContainer: OverlayContainer){
+  //   overlayContainer.getContainerElement().classList.add('bar-dark-theme');
+  // }
+ }

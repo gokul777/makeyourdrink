@@ -1,6 +1,4 @@
-.mat-dialog-actions{
-    float: right;
-}
+
 ::ng-deep .mat-grid-list .mat-grid-tile .mat-figure{
     justify-content: left!important;
     text-align: left!important;
@@ -8,7 +6,29 @@
 ::ng-deep .mat-dialog-content{
     max-height: 40vh!important;
 }
-/* ::ng-deep .mat-grid-list{
-    max-height: 20vh!important;
-    overflow-y: auto;
-} */
+::ng-deep .mat-grid-tile {
+    overflow: visible !important;
+}
+button{
+    width: 100%;
+}
+
+::ng-deep .mat-dialog-container{
+    padding: 8px!important;
+}
+::ng-deep .mat-list-base .mat-list-item, .mat-list-base .mat-list-option{
+    height: 34px!important;
+}
+::ng-deep .mat-list-base .mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content{
+    padding: 0!important;
+    font-size: 14px!important;
+}
+::ng-deep .mat-dialog-container{
+    padding: 14px!important;
+    height: 515px!important;
+    /* background-color: #424242!important; */
+}
+.dark{
+    background-color: #607d8b;
+    color: #f7f7f7;
+}
