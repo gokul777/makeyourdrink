@@ -28,9 +28,6 @@ Run `firebase deploy`
 `https://makeyourcocktaildrink.firebaseapp.com/`
 `https://makeyourcocktaildrink.web.app/`
 
-## Application url - AWS EC2
-`http://ec2-13-126-42-206.ap-south-1.compute.amazonaws.com/`
-
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
